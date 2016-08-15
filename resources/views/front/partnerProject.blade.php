@@ -36,10 +36,14 @@
           <div class="title-area">
             <h2 class="title">{{$partnertProjectDetails->title}}</h2>
             <span class="line"></span>
+
+             @if(Auth::check())                 
+             <a   style="padding:10px" href="{{url('admin/contentEdit/'.$partnertProjectDetails->id)}}"><span class="glyphicon glyphicon-edit  pull-right" style="color:green"> </span></a>                 
+             @endif   
            
           </div>
         </div>
-       <div class="col-md-12" id="service" style="margin-bottom: 25px">
+       <div class="col-md-12 marginTopOfContent "  style="margin-bottom: 25px">
             <div class="clearfix content">
   		        <?php echo $partnertProjectDetails->content;?>
 		        </div>

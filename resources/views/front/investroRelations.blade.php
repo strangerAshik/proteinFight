@@ -38,11 +38,15 @@
                         </div>
           @endif
         <div class="col-md-6">
+        
           <div class="title-area">
             <h2 class="title">{{$investroRelations->title}}</h2>
-            <span class="line"></span>           
+            <span class="line"></span> 
+             @if(Auth::check())                 
+             <a   style="padding:10px" href="{{url('admin/contentEdit/'.$investroRelations->id)}}"><span class="glyphicon glyphicon-edit  pull-right" style="color:green"> </span></a>                 
+             @endif          
           </div>
-          <div class="clearfix">
+          <div class="clearfix content">
              <?php echo $investroRelations->content;?>
           </div> 
         </div>
@@ -67,7 +71,7 @@
                     <div class="form-group">                        
                       <textarea required="" placeholder="Message [Required]" rows="3" name="message" class="form-control"></textarea>
                     </div>
-                    <button class="btn btn-primary">Send Message</button>
+                    <button class="btn btn-primary" style="background:#4CAF50">Send Message</button>
                   </form>
                  </div>
           </div> 

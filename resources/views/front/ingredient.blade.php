@@ -41,7 +41,10 @@
            
           </div>
         </div>
-       <div class="col-md-12" style="margin-top:20px">
+       <div class="col-md-12 marginTopOfContent">
+         @if(Auth::check())                 
+          <a   style="padding:10px" href="{{url('admin/contentEdit/'.$ingredientsDetails->id)}}"><span class="glyphicon glyphicon-edit  pull-right" style="color:green"> </span></a>                 
+         @endif
             <div class="clearfix content">
   		        <?php echo $ingredientsDetails->content;?>
 		        </div>
@@ -62,10 +65,13 @@
           </div>
         </div>
         <div class="col-md-12">
-          <div class="service-content">
+          <div class="marginTopOfContent">
             <div class="row">
             @foreach($poweredBys as $info)
             	 <div class="col-md-4 col-sm-6">
+                        @if(Auth::check())                 
+                        <a   style="padding:10px" href="{{url('admin/contentEdit/'.$info->id)}}"><span class="glyphicon glyphicon-edit  pull-right" style="color:green"> </span></a>                 
+                        @endif
                 <div class="single-feature">
                 <div class="text-center">
                  <img width="350" height="100" alt="Ingredients Image" class="text-center" src="{{asset('public/uploads/'.$info->calling_id)}}">

@@ -35,13 +35,13 @@
 			        		<td>{{$contents->unique_key}}</td>
 			        	</tr>
 			        	@endif
-			        	@if($contents->content)
+			        	@if($contents->content=='<br>' || !$contents->content)
 			        	<tr>
 			        		<th>Content</th>
 			        		<td><?php echo $contents->content;?></td>
 			        	</tr>
 			        	@endif
-						@if($contents->more_content)
+						@if($contents->more_content=='<br>' || !$contents->more_content)
 			        	<tr>
 			        		<th>More Content</th>
 			        		<td><?php echo $contents->more_content;?></td>
@@ -73,9 +73,11 @@
 			        		</td>
 			        	</tr>
 			        	@endif	
+			        	
 			        	<tr>
 			        		<th>Order</th><td>{{$contents->order}}</td>
-			        	</tr>		        	
+			        	</tr>	
+			        	
 			        </tbody>
 			     </table>
 			    </div>

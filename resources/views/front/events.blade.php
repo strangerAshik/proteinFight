@@ -47,6 +47,9 @@
                   
                     <div class="blog-news-title">
                       <h2><a href="{{url('singleArticle/'.$info->id)}}">{{$info->title}}</a></h2>
+                        @if(Auth::check())                 
+                        <a href="{{url('admin/contentEdit/'.$info->id)}}"<span class="glyphicon glyphicon-edit  pull-right" style="color:green"> </span></a>                 
+                        @endif
                       <p>By <a href="#" class="blog-author">{{$info->creator}}</a> <span class="blog-date">|{{date('d F Y',strtotime($info->created_at))}}</span></p>
                     </div>
                     <div class="blog-news-details">

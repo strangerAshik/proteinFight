@@ -40,7 +40,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style type="text/css">
-       .content img{margin: 0px 15px;}
+       .content img{margin: 15px 0 15px 15px;}
     </style>
   </head>
   <body>
@@ -61,67 +61,7 @@
   </header>
   <!-- End header -->
   
-  <!-- Start login modal window -->
-  <div aria-hidden="false" role="dialog" tabindex="-1" id="login-form" class="modal leread-modal fade in">
-    <div class="modal-dialog">
-      <!-- Start login section -->
-      <div id="login-content" class="modal-content">
-        <div class="modal-header">
-          <button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span></button>
-          <h4 class="modal-title"><i class="fa fa-unlock-alt"></i>Login</h4>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <input type="text" placeholder="User name" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-             <div class="loginbox">
-              <label><input type="checkbox"><span>Remember me</span></label>
-              <button class="btn signin-btn" type="button">SIGN IN</button>
-            </div>                    
-          </form>
-        </div>
-        <div class="modal-footer footer-box">
-          <a href="#">Forgot password ?</a>
-          <span>No account ? <a id="signup-btn" href="#">Sign Up.</a></span>            
-        </div>
-      </div>
-      <!-- Start signup section -->
-      <div id="signup-content" class="modal-content">
-        <div class="modal-header">
-          <button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span></button>
-          <h4 class="modal-title"><i class="fa fa-lock"></i>Sign Up</h4>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <input placeholder="Name" class="form-control">
-            </div>
-            <div class="form-group">
-              <input placeholder="Username" class="form-control">
-            </div>
-            <div class="form-group">
-              <input placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <div class="signupbox">
-              <span>Already got account? <a id="login-btn" href="#">Sign In.</a></span>
-            </div>
-            <div class="loginbox">
-              <label><input type="checkbox"><span>Remember me</span><i class="fa"></i></label>
-              <button class="btn signin-btn" type="button">SIGN UP</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End login modal window -->
+ 
 
   <!-- BEGIN MENU -->
   <section id="menu-area">      
@@ -149,20 +89,21 @@
             <li @if($page=='Ingredient')class="active"@endif><a href="{{url('ingredient')}}">Ingredients</a></li>
             <li @if($page=='Technology')class="active" @endif ><a href="{{url('technology')}}">Technology</a></li>
             <li @if($page=='Partner Projects')class="active"@endif ><a href="{{url('partnerProject')}}">Partner Projects</a></li>
-            <li @if($page=='about'||$page=='Investor Relations'||$page=='Team' || $page=='Career'|| $page=='Events'|| $page=='Blog')class="active"@endif class="dropdown">
+            <li @if($page=='about'||$page=='Investor Relations'||$page=='Team' || $page=='Career'|| $page=='Events')class="active"@endif class="dropdown">
               <a href="{{url('about')}}" class="dropdown-toggle" data-toggle="dropdown">About <span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="{{url('investroRelations')}}">Investor relations</a></li>                
                 <li><a href="{{url('team')}}">Team</a></li>
                 <li><a href="{{url('events')}}">Events</a></li>
                 <li><a href="{{url('career')}}">Career</a></li>
-                <li><a href="{{url('blog')}}">Blog</a></li>
+               
                          
               </ul>
             </li>
            
             <li @if($page=='contact')class="active"@endif><a href="{{url('contact')}}">Contact</a></li>
             <li @if($page=='FAQ')class="active"@endif><a href="{{url('faq')}}">FAQ</a></li>
+            <li @if($page=='Blog')class="active"@endif><a href="{{url('blog')}}">Blog</a></li>
           </ul>                     
         </div><!--/.nav-collapse -->
       
@@ -178,7 +119,7 @@
 
 
   <!-- Start subscribe us -->
-  <section id="subscribe">
+  <section id="subscribe"  style="margin-top: 25px;">
   @if (session('newsletter'))
                         <div class="alert alert-success ">
                             {{ session('newsletter') }}

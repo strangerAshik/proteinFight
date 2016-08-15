@@ -19,28 +19,33 @@
          <div class="box-body">
             {{Form::hidden('id',$id)}}
             <div class="form-group ">
+
                <label for="title" class="col-md-2 control-label ">Title</label>
                <div class="col-md-4">
                   <input name="title" value="{{$contents->title}}" class="form-control"  placeholder=" " required="">
                </div>
+               <span  >
                <label for="title" class="col-md-2 control-label ">Subtitle</label>
                <div class="col-md-4">
                   <input name="subtitle" value="{{$contents->subtitle}}" class="form-control"  placeholder=" " >
-               </div>               
+               </div>
+               </span>               
             </div>
             <div class="form-group ">
                <label for="category" class="col-md-2 control-label ">Category</label>
                <div class="col-md-4">
                {!!Form::select('category_id',[' '=>'Select Category..']+$categories,$contents->category_id,array('class'=>'form-control'))!!}
                  <a href="#"> <span class="label label-primary glyphicon glyphicon-plus" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addCategory"> New Category</span></a>
-                 
-                 
-               </div>  
+               
+               </div> 
+               <span  style="display:none"  >
                <label for="category" class="col-md-2 control-label ">Unique Key</label>
                <div class="col-md-4">
-                  <input name="unique_key" value="{{$contents->unique_key}}" class="form-control"  placeholder=" " >
-               </div>            
+                  <input  name="unique_key" value="{{$contents->unique_key}}" class="form-control"  placeholder=" " >
+               </div>  
+               </span>          
             </div>
+            <span  >
             <div class="form-group">
                <label for="description" class="col-md-2 control-label">Content</label>
                <div class="col-md-10">
@@ -48,6 +53,9 @@
                   
                </div>
             </div>
+            </span>
+
+            <span  >
             <div class="form-group">
                <label for="description" class="col-md-2 control-label">More Content (Not Recommended )</label>
                <div class="col-md-10">
@@ -55,7 +63,9 @@
                   
                </div>
             </div>
-
+            </span>
+            
+            <span  >
             <div class="form-group ">
                <label for="title" class="col-md-2 control-label ">Hyper Link</label>
                <div class="col-md-10">
@@ -63,6 +73,7 @@
                </div>
                              
             </div>
+            </span>
             @if($images)
             <div class="form-group" id="img">
                <label for="description" class="col-md-2 control-label">Image(s)</label>
@@ -78,6 +89,8 @@
                
             </div>
             @endif
+            
+           
 
             <div class="form-group">
                <label for="description" class="col-md-2 control-label">Add New Images</label>
@@ -87,6 +100,7 @@
                   
                </div>
             </div>
+            
              @if($pdfs)
             <div class="form-group">
                <label for="description" class="col-md-2 control-label">PDF(s)</label>
@@ -97,12 +111,15 @@
             </div>
             </div>
             @endif
+            <span>
             <div class="form-group">
                <label for="description" class="col-md-2 control-label">Add New PDF</label>
                <div class="col-md-10"> 
                <input type="file" id="pdfs" name="pdfs[]" multiple />
             </div>
             </div>
+            </span>
+            <span  >
             <div class="form-group ">
                <label for="title" class="col-md-2 control-label ">Order</label>
                <div class="col-md-4">
@@ -110,6 +127,7 @@
                </div>
                              
             </div>
+            </span>
 
          </div>
          <!-- /.box-body -->

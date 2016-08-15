@@ -35,9 +35,12 @@
             <h2 class="title">{{$description->title}}</h2>
 
             <span class="line"></span>
+            @if(Auth::check())                 
+             <a   style="padding:10px" href="{{url('admin/contentEdit/'.$description->id)}}"><span class="glyphicon glyphicon-edit  pull-right" style="color:green"> </span></a>                 
+             @endif   
              </div>
         </div>
-        <div class="col-md-12" style="margin-top:20px">
+        <div class="col-md-12 marginTopOfContent ">
             <div class="clearfix content">
                <?php echo $description->content;?>
             </div>
@@ -52,6 +55,9 @@
               <!-- Start single team member -->
                @foreach($team as $info)
               <div class="col-md-4">
+               @if(Auth::check())                 
+               <a   style="padding:10px" href="{{url('admin/contentEdit/'.$info->id)}}"><span class="glyphicon glyphicon-edit  pull-right" style="color:green"> </span></a>                 
+               @endif 
              
                 <div class="single-team-member" style="margin-bottom: 50px">
                  <div class="team-member-img">

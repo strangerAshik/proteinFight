@@ -39,7 +39,7 @@
            
           </div>
         </div>
-       <div class="col-md-12" id="">
+       <div class="col-md-12 ">
           
        
                 <div class="why-choose-us">
@@ -54,9 +54,15 @@
                           <a data-toggle="collapse" data-parent="#accordion" href="#{{$info->id}}">
                             {{$info->title}} <span class="fa fa-minus-square"></span>
                           </a>
+                        
+                      
+
                         </h4>
                       </div>
                       <div id="{{$info->id}}" class="panel-collapse collapse @if($num==1) in @endif ">
+                        @if(Auth::check())                 
+                        <a   style="padding:10px" href="{{url('admin/contentEdit/'.$info->id)}}"><span class="glyphicon glyphicon-edit  pull-right" style="color:green"> </span></a>                 
+                        @endif
                         <div class="panel-body">
                         <?php echo $info->content;?>
                         </div>

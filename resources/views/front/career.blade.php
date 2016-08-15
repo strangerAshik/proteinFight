@@ -35,11 +35,14 @@
        <div class="col-md-12">
           <div class="title-area">
             <h2 class="title">{{$career->title}}</h2>
+             @if(Auth::check())                 
+                        <a href="{{url('admin/contentEdit/'.$career->id)}}"<span class="glyphicon glyphicon-edit  pull-right" style="color:green"> </span></a>                 
+             @endif
             <span class="line"></span>
            
           </div>
         </div>
-       <div class="col-md-12" id="service">
+       <div class="col-md-12 marginTopOfContent">
           
         <?php echo $career->content;?>
 		

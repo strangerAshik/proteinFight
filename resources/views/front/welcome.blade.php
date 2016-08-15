@@ -7,11 +7,15 @@
     <div class="main-slider">
  @foreach($sliderImages as $image)
       <div class="single-slide">
+      
         <img src="{{asset('public/uploads/'.$image->calling_id)}}" alt="img">
         <div class="slide-content">
           <div class="container">
             <div class="row">
               <div class="col-md-6 col-sm-6">
+               @if(Auth::check())               
+                <a style="padding:10px; color: red; font-weight: bold;" href="{{url('admin/singleContent/'.$image->id)}}"><span class="glyphicon glyphicon-edit  pull-right" style="color:green"> </span></a>               
+               @endif 
            <!--      <div class="slide-article">
                   <h1 class="wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s">Creative Design & Best Feature</h1>
                   <p class="wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.75s">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
@@ -41,15 +45,29 @@
           <div class="title-area">
             <h2 class="title">{{$homeContents->title}}</h2>
             <span class="line"></span>
-            <div class="text-justify">
+
+          </div>
+          </div>
+            
+            <div class="col-md-12">
+            <div class="text-justify marginTopOfContent">
+              @if(Auth::check())               
+                <a style="padding:10px" href="{{url('admin/contentEdit/'.$homeContents->id)}}"><span class="glyphicon glyphicon-edit  pull-right" style="color:green"> </span></a>               
+              @endif
+              
              <?php echo $homeContents->content;?>
             </div>
-          </div>
+            </div>
         </div>
         <div class="col-md-12">
           <div class="feature-content">
             <div class="row">
               <div class="col-md-4 col-sm-6" onclick="document.location ='{{url('ingredient')}}'">
+
+              @if(Auth::check())               
+                <a style="padding:10px" href="{{url('admin/contentEdit/'.$ingredientsHome->id)}}"><span class="glyphicon glyphicon-edit  pull-right" style="color:green"> </span></a>               
+              @endif
+
                 <div class="single-feature"><!--wow zoomIn-->
                 <div class="text-center">
                 <?php $ingredientImage=App\contentModel::getFirstImageForGallery($ingredientsHome->id);?>
@@ -60,6 +78,11 @@
                 </div>
               </div>
               <div class="col-md-4 col-sm-6" onclick="document.location ='{{url('technology')}}'">
+
+               @if(Auth::check())               
+                <a style="padding:10px" href="{{url('admin/contentEdit/'.$technologyHome->id)}}"><span class="glyphicon glyphicon-edit  pull-right" style="color:green"> </span></a>               
+               @endif
+
                 <div class="single-feature ">
                   <div class="text-center">
                   <?php $technologyImage=App\contentModel::getFirstImageForGallery($technologyHome->id);?>
@@ -70,6 +93,9 @@
                 </div>
               </div>
               <div class="col-md-4 col-sm-6" onclick="document.location ='{{url('partnerProject')}}'">
+                @if(Auth::check())               
+                <a style="padding:10px" href="{{url('admin/contentEdit/'.$partnertProjectHome->id)}}"><span class="glyphicon glyphicon-edit  pull-right" style="color:green"> </span></a>               
+                @endif
                 <div class="single-feature ">
                   <div class="text-center">
                   <?php $partnerProjectImage=App\contentModel::getFirstImageForGallery($partnertProjectHome->id);?>
@@ -105,6 +131,9 @@
                  
                   <div class="blog-news-title">
                     <h2><a href="{{url('singleArticle/'.$lastProtineFightNews->id)}}">{{$lastProtineFightNews->title}}</a></h2>
+                     @if(Auth::check())               
+                      <a style="padding:10px" href="{{url('admin/contentEdit/'.$lastProtineFightNews->id)}}"><span class="glyphicon glyphicon-edit  pull-right" style="color:green"> </span></a>               
+                      @endif
                     <p>By <a class="blog-author" href="#">{{$lastProtineFightNews->creator}}</a> <span class="blog-date">|{{date("d F Y", strtotime($lastProtineFightNews->created_at))}}</span></p>
                   </div>
                   <div class="blog-news-details">
@@ -133,6 +162,9 @@
                
                   <div class="blog-news-title">
                     <h2><a href="{{url('singleArticle/'.$lastInternationalNews->id)}}">{{$lastInternationalNews->title}}</a></h2>
+                     @if(Auth::check())               
+                      <a style="padding:10px" href="{{url('admin/contentEdit/'.$lastInternationalNews->id)}}"><span class="glyphicon glyphicon-edit  pull-right" style="color:green"> </span></a>               
+                      @endif
                     <p>By <a class="blog-author" href="#">{{$lastInternationalNews->creator}}</a> <span class="blog-date">|{{date('d F Y',strtotime($lastInternationalNews->created_at))}}</span></p>
                   </div>
                   <div class="blog-news-details">
